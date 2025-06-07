@@ -6,8 +6,10 @@ Simple demo web app listing events in Austin.
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
+
+Build for production with `npm run build` and start with `npm start`.
 
 ## Testing
 
