@@ -22,3 +22,8 @@
 ### 📘 austin-events.p2 - Story 3.1 – Quality Assurance
 - [x] Task 3.1.a – Add test for new API route
 - [ ] Task 3.1.b – Update CI instructions for Next.js build
+
+## 🧱 austin-events.p2 - Step 4 – Splash Page POC
+### 📘 austin-events.p2 - Story 4.1 – Parallax Hero
+- [x] Task 4.1.a – Add hero art with simple parallax effect
+- [x] Task 4.1.b – Style splash page per local vibe
