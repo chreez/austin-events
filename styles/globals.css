@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body {
-  @apply font-body bg-limestone text-earth;
+@layer base {
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f2f0e8;
+    color: #a78b71;
+  }
 }
