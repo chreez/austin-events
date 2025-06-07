@@ -33,23 +33,27 @@ export default function Home() {
   const roles = Array.from(new Set(events.map(e => e.role)));
 
   return (
-    <main className="p-8">
-      <h1 className="text-4xl font-display mb-4 text-sunset">Austin Events</h1>
-      <div className="mb-4">
-        <Filter label="Category" value={category} options={categories} onChange={setCategory} />
-        <Filter label="Role" value={role} options={roles} onChange={setRole} />
-      </div>
-      <ul className="mb-6">
-        {filtered.map(e => (
-          <li key={e.id} className="mb-2">{e.title} - {e.category}</li>
-        ))}
-      </ul>
-      <h2 className="text-2xl font-display text-hotpink mb-2">Recommended</h2>
-      <ul>
-        {recommended.map(e => (
-          <li key={e.id}>{e.title}</li>
-        ))}
-      </ul>
-    </main>
+    <>
+      <section className="h-screen bg-[url('/austin-skyline.svg')] bg-cover bg-center bg-fixed flex items-center justify-center">
+        <h1 className="text-5xl font-display text-limestone drop-shadow-lg">Austin Events</h1>
+      </section>
+      <main className="p-8 bg-limestone text-earth">
+        <div className="mb-4">
+          <Filter label="Category" value={category} options={categories} onChange={setCategory} />
+          <Filter label="Role" value={role} options={roles} onChange={setRole} />
+        </div>
+        <ul className="mb-6">
+          {filtered.map(e => (
+            <li key={e.id} className="mb-2">{e.title} - {e.category}</li>
+          ))}
+        </ul>
+        <h2 className="text-2xl font-display text-hotpink mb-2">Recommended</h2>
+        <ul>
+          {recommended.map(e => (
+            <li key={e.id}>{e.title}</li>
+          ))}
+        </ul>
+      </main>
+    </>
   );
 }

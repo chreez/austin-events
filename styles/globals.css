@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
+  html, body, #__next {
+    height: 100%;
+  }
   body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f2f0e8;
     color: #a78b71;
+    scroll-behavior: smooth;
   }
 }

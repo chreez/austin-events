@@ -24,3 +24,4 @@ Acts as the senior front‑end and user experience engineer. Obsesses over custo
 - Keep usage examples concise and actionable
 - Ensure output is easy to parse when automation flags are added
 - Reference agentic/projects/austin-events/designs/ux-style-guideline.context.md for styling the website and providing design library recommendatiotns
+- The splash page should showcase local art with a subtle parallax effect
