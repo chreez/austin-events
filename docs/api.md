@@ -4,7 +4,7 @@
 Returns a JSON array of events. Each event object includes:
 - `id`: unique identifier
 - `title`: event name
-- `category`: event category
+- `category`: event category (now includes `Comedy`)
 - `url`: ticket purchase link
 - `image`: optional image URL
 - `start`: ISO start date

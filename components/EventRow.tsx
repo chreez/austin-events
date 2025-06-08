@@ -16,7 +16,7 @@ export default function EventRow({ event }: EventRowProps) {
     <tr
       onClick={() => router.push(`/events/${event.id}`)}
       style={bg}
-      className="bg-center bg-cover bg-black/40 bg-blend-multiply backdrop-blur-sm text-limestone hover:bg-black/60 cursor-pointer text-lg"
+      className="hover:bg-base-200 cursor-pointer bg-center bg-cover text-base-content"
     >
       <td className="p-3 font-semibold">{event.title}</td>
       <td className="p-3">{fmtD(event.start)}</td>
