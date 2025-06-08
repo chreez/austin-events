@@ -8,5 +8,17 @@ export async function getServerSideProps() {
 }
 
 export default function Home() {
-  return null;
+  return (
+    <>
+      <Hero>
+        <Link
+          href="/events"
+          className="btn btn-primary bg-hotpink text-limestone border-none"
+        >
+          Browse Events
+        </Link>
+      </Hero>
+    </>
+  );
+
 }

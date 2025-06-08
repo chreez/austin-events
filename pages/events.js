@@ -8,7 +8,7 @@ function FilterChips({ options, value, onChange }) {
     <div className="flex flex-wrap gap-2">
       <button
         onClick={() => onChange('')}
-        className={`px-3 py-1 rounded ${value === '' ? 'bg-hotpink text-white' : 'bg-white border'}`}
+        className={`btn btn-sm ${value === '' ? 'btn-primary' : 'btn-ghost'}`}
       >
         All
       </button>
@@ -16,7 +16,7 @@ function FilterChips({ options, value, onChange }) {
         <button
           key={opt}
           onClick={() => onChange(opt)}
-          className={`px-3 py-1 rounded ${value === opt ? 'bg-hotpink text-white' : 'bg-white border'}`}
+          className={`btn btn-sm ${value === opt ? 'btn-primary' : 'btn-ghost'}`}
         >
           {opt}
         </button>
@@ -67,7 +67,7 @@ export default function Events() {
   return (
     <>
       <Hero title="Austin Events" />
-      <main className="p-8 bg-limestone text-earth max-w-4xl mx-auto">
+      <main className="bg-limestone text-earth max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <Link href="/" className="text-hotpink underline mb-4 inline-block">Back Home</Link>
         <div className="mb-4 flex flex-col gap-4">
           <input
@@ -75,14 +75,14 @@ export default function Events() {
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search events"
-            className="border p-2"
+            className="input input-bordered w-full max-w-xs"
           />
           <FilterChips options={categories} value={category} onChange={setCategory} />
         </div>
         {eventsToday.length > 0 && (
           <section className="mb-6">
             <h2 className="text-xl font-display mb-2">Events Today</h2>
-            <table className="w-full text-left">
+            <table className="table w-full">
               <thead>
                 <tr>
                   <th className="p-2">Title</th>
@@ -106,7 +106,7 @@ export default function Events() {
               <h3 className="text-lg font-semibold mb-1">
                 {new Date(date).toLocaleDateString('en-US', { dateStyle: 'medium' })}
               </h3>
-              <table className="w-full text-left">
+              <table className="table w-full">
                 <tbody>
                   {evs.map(e => (
                     <EventRow key={e.id} event={e} />
@@ -120,7 +120,7 @@ export default function Events() {
         {noDate.length > 0 && (
           <section className="mb-6">
             <h2 className="text-xl font-display mb-2">Events without dates</h2>
-            <table className="w-full text-left">
+            <table className="table w-full">
               <tbody>
                 {noDate.map(e => (
                   <EventRow key={e.id} event={e} />
