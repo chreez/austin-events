@@ -2,7 +2,13 @@
 
 Simple demo web app listing events in Austin.
 
-The UI is built mobile first with responsive Tailwind classes so it looks great on small screens.
+The UI is built mobile first with responsive Tailwind classes so it looks great on small screens.  A shared Hero component displays the skyline on both the home and events pages.
+
+## Features
+
+- Search and filter events by category using simple chip-style buttons.
+- Event cards reveal performer images on hover and link directly to Ticketmaster for easy ticket purchase.
+- Start and end times as well as ticket prices are displayed for quick viewing.
 
 ## Setup
 
