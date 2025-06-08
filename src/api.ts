@@ -1,6 +1,11 @@
-import events from './events.js';
+import events, { Event } from './events.ts';
 
-export async function fetchEvents() {
+/** Fetch event data from Ticketmaster or fall back to local fixtures */
+export interface FrontendEvent extends Event {
+  averageCost?: number;
+  tags: string[];
+}
+export async function fetchEvents(): Promise<FrontendEvent[]> {
   const apiKey = process.env.TICKETMASTER_API_KEY;
   if (apiKey) {
     try {
@@ -16,6 +21,7 @@ export async function fetchEvents() {
           if (saleStart && new Date(saleStart) > now) return false;
           return true;
         });
+        console.log(`Fetched ${eventsData.length} events from Ticketmaster`);
         return eventsData.map(ev => {
           const price = ev.priceRanges?.[0];
           const avg =
@@ -50,7 +56,8 @@ export async function fetchEvents() {
   }));
 }
 
-export function recommendEvents(events, tag) {
+/** Choose events that match the given tag, falling back to the full list */
+export function recommendEvents(events: FrontendEvent[], tag: string): FrontendEvent[] {
   const filtered = events.filter(e => e.tags.includes(tag));
   return filtered.length ? filtered : events;
 }

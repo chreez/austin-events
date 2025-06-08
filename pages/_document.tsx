@@ -1,5 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
+/** Custom document for shared metadata and fonts */
+
 export default function Document() {
   return (
     <Html>

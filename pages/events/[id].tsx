@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import type { FrontendEvent } from '../../src/api.ts';
 
 function formatDate(dateStr) {
   if (!dateStr) return '';
@@ -12,14 +13,20 @@ function formatTime(dateStr) {
   return new Date(dateStr).toLocaleTimeString('en-US', { timeStyle: 'short' });
 }
 
+/** Detailed page for a single event */
 export default function EventDetail() {
   const router = useRouter();
   const { id } = router.query;
-  const [event, setEvent] = useState(null);
+  const [event, setEvent] = useState<FrontendEvent | null>(null);
 
   useEffect(() => {
     if (id) {
-      fetch(`/api/events/${id}`).then(res => res.json()).then(setEvent);
+      fetch(`/api/events/${id}`)
+        .then(res => res.json())
+        .then(data => {
+          console.log('Loaded event', id);
+          setEvent(data);
+        });
     }
   }, [id]);
 

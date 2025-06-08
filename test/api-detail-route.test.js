@@ -1,5 +1,5 @@
 import assert from 'assert/strict';
-import handler from '../pages/api/events/[id].js';
+import handler from '../pages/api/events/[id].ts';
 
 await (async () => {
   const req = { query: { id: '1' } };

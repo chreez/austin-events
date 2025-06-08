@@ -1,6 +1,6 @@
 # Austin Events
 
-Simple demo web app listing events in Austin.
+Simple demo web app listing events in Austin. The project now uses TypeScript for stronger type safety.
 
 The UI is built mobile first with responsive Tailwind classes so it looks great on small screens.  A shared Hero component displays the skyline on both the home and events pages.
 
@@ -17,6 +17,8 @@ npm install
 npm run dev
 ```
 
+The dev server automatically handles TypeScript compilation.
+
 Build for production with `npm run build` and start with `npm start`.
 
 ## Testing
@@ -24,6 +26,8 @@ Build for production with `npm run build` and start with `npm start`.
 ```bash
 npm test
 ```
+
+See `docs/api.md` for details on the API endpoints.
 
 ## Deployment
 

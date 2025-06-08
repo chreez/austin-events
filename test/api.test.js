@@ -1,5 +1,5 @@
 import assert from 'assert/strict';
-import { fetchEvents, recommendEvents } from '../src/api.js';
+import { fetchEvents, recommendEvents } from '../src/api.ts';
 
 await (async () => {
   const events = await fetchEvents();

@@ -1,6 +1,12 @@
 import React from 'react';
 
-export default function Hero({ title = 'Austin Vibes', children }) {
+export interface HeroProps {
+  title?: string;
+  children?: React.ReactNode;
+}
+
+/** Displays the skyline banner shared across pages */
+export default function Hero({ title = 'Austin Vibes', children }: HeroProps) {
   return (
     <section className="text-center">
       <h1 className="sr-only">{title}</h1>

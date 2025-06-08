@@ -1,5 +1,5 @@
 import assert from 'assert/strict';
-import handler from '../pages/api/events.js';
+import handler from '../pages/api/events.ts';
 
 await (async () => {
   const req = {};

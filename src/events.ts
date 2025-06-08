@@ -1,4 +1,17 @@
-const events = [
+/** Stub data returned when the API key is missing */
+export interface Event {
+  id: number
+  title: string
+  category: string
+  url: string
+  image: string
+  start: string
+  end: string
+  price: number
+  role: string
+}
+
+const events: Event[] = [
   {
     id: 1,
     title: 'Live Music Night',
