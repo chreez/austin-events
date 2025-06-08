@@ -10,9 +10,9 @@ It manages scoped work via **lever-based execution** and **role-aware context tr
 
 Codex must keep track of the project and phase being worked on.
 
-- **Project**: `agentic-platform`
-- **Phase**: `p4`
-- **Plan**: [projects/agentic-platform/plan.p4.md](./projects/agentic-platform/plan.p4.md)
+- **Project**: `austin-events`
+- **Phase**: `p1`
+- **Plan**: [projects/austin-events](./projects/austin-events/plan.p1.md)
 ---
 
 ## 🧩 Behavior Modes
