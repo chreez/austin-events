@@ -13,6 +13,11 @@ export async function fetchEvents() {
           id: ev.id,
           title: ev.name,
           category: ev.classifications?.[0]?.segment?.name || 'Other',
+          url: ev.url,
+          image: ev.images?.[0]?.url,
+          start: ev.dates?.start?.dateTime,
+          end: ev.dates?.end?.dateTime,
+          price: ev.priceRanges?.[0]?.min,
           role: 'guest',
           tags: [
             (ev.classifications?.[0]?.segment?.name || 'other').toLowerCase(),
