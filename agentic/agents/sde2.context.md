@@ -19,3 +19,4 @@ Implements features and ensures code quality for user-facing tasks while keeping
 - Escalate to `ux` for guidance on user interface or CLI design
 - Iterate through `projectplan*.md` to expand stories into tasks and create new stories when necessary
 - Coordinate with workers and dashboard code when testing remote execution
+- Comedy events category added for filtering

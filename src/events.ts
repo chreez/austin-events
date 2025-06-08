@@ -44,6 +44,17 @@ const events: Event[] = [
     end: '2025-07-10T12:00:00',
     price: 30,
     role: 'user'
+  },
+  {
+    id: 4,
+    title: 'Stand Up Showcase',
+    category: 'Comedy',
+    url: 'https://ticketmaster.com/event/4',
+    image: 'https://images.unsplash.com/photo-1581905764498-6dfc3846cd31?auto=format&fit=crop&w=600&q=80',
+    start: '2025-07-12T19:00:00',
+    end: '2025-07-12T21:00:00',
+    price: 25,
+    role: 'guest'
   }
 ];
 

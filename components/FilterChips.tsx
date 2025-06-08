@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './ui/Button';
 
 export interface FilterChipsProps {
   options: string[];
@@ -10,20 +11,17 @@ export interface FilterChipsProps {
 export default function FilterChips({ options, value, onChange = () => {} }: FilterChipsProps) {
   return (
     <div className="flex flex-wrap gap-2">
-      <button
-        onClick={() => onChange()}
-        className={`px-3 py-1 rounded ${value === '' ? 'bg-hotpink text-white' : 'bg-white border'}`}
-      >
+      <Button onClick={() => onChange()} className={value === '' ? '' : 'btn-outline'}>
         All
-      </button>
+      </Button>
       {options.map(opt => (
-        <button
+        <Button
           key={opt}
           onClick={() => onChange()}
-          className={`px-3 py-1 rounded ${value === opt ? 'bg-hotpink text-white' : 'bg-white border'}`}
+          className={value === opt ? '' : 'btn-outline'}
         >
           {opt}
-        </button>
+        </Button>
       ))}
     </div>
   );

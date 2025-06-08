@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Hero from '../components/Hero';
 import EventRow from '../components/EventRow';
 import FilterChips from '../components/FilterChips';
+import Input from '../components/ui/Input';
 
 import type { FrontendEvent } from '../src/api.ts';
 
@@ -32,8 +33,7 @@ export default function Events() {
   const sorted = [...filtered].sort((a, b) => {
     if (!a.start) return 1;
     if (!b.start) return -1;
-    // @ts-ignore
-    return new Date(a.start) - new Date(b.start);
+    return new Date(a.start!).valueOf() - new Date(b.start!).valueOf();
   });
 
   const now = new Date();
@@ -52,27 +52,24 @@ export default function Events() {
     upcomingByDate[ds].push(ev);
   }
 
-  // @ts-ignore
-  // @ts-ignore
   return (
     <>
       <Hero title="Austin Events" />
-      <main className="p-8 bg-limestone text-earth max-w-4xl mx-auto">
-        <Link href="/" className="text-hotpink underline mb-4 inline-block">Back Home</Link>
+      <main className="p-8 bg-base-100 text-base-content max-w-4xl mx-auto">
+        <Link href="/" className="link link-primary mb-4 inline-block">Back Home</Link>
         <div className="mb-4 flex flex-col gap-4">
-          <input
+          <Input
             type="text"
             value={query}
             onChange={e => setQuery(e.target.value)}
             placeholder="Search events"
-            className="border p-2"
           />
           <FilterChips options={categories} value={category} />
         </div>
         {eventsToday.length > 0 && (
           <section className="mb-6">
             <h2 className="text-xl font-display mb-2">Events Today</h2>
-            <table className="w-full text-left">
+            <table className="table w-full">
               <thead>
                 <tr>
                   <th className="p-2">Title</th>
@@ -96,7 +93,7 @@ export default function Events() {
               <h3 className="text-lg font-semibold mb-1">
                 {new Date(date).toLocaleDateString('en-US', { dateStyle: 'medium' })}
               </h3>
-              <table className="w-full text-left">
+              <table className="table w-full">
                 <tbody>
                   {(evs as any).map(e => (
                     <EventRow key={e.id} event={e} />
@@ -110,7 +107,7 @@ export default function Events() {
         {noDate.length > 0 && (
           <section className="mb-6">
             <h2 className="text-xl font-display mb-2">Events without dates</h2>
-            <table className="w-full text-left">
+            <table className="table w-full">
               <tbody>
                 {noDate.map(e => (
                   <EventRow key={e.id} event={e} />

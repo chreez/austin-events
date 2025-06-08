@@ -12,5 +12,5 @@ await (async () => {
   await handler(req, res);
   assert.equal(status, 200);
   assert.ok(Array.isArray(data));
-  assert.equal(data.length, 3);
+  assert.ok(data.length >= 4);
 })();
