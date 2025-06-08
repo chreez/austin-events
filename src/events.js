@@ -1,4 +1,4 @@
-export default [
+const events = [
   {
     id: 1,
     title: 'Live Music Night',
@@ -18,3 +18,5 @@ export default [
     role: 'user'
   }
 ];
+
+export default events;
