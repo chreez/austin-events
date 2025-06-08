@@ -23,6 +23,8 @@ export async function fetchEvents(): Promise<FrontendEvent[]> {
         });
         console.log(`Fetched ${eventsData.length} events from Ticketmaster`);
         return eventsData.map(ev => {
+          console.log(JSON.stringify(ev), 'test ')
+          
           const price = ev.priceRanges?.[0];
           const avg =
             price?.min && price?.max
