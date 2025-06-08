@@ -7,4 +7,5 @@
   </defs>
   <rect width="600" height="300" fill="url(#grad)" />
   <path d="M0 250 L50 220 L100 240 L150 200 L200 230 L250 180 L300 210 L350 170 L400 215 L450 160 L500 205 L550 150 L600 180 L600 300 L0 300 Z" fill="#f2f0e8" />
+  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="48" fill="#ff3971" font-family="Bungee Shade, cursive">Austin Vibes</text>
 </svg>
