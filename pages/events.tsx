@@ -2,36 +2,23 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Hero from '../components/Hero';
 import EventRow from '../components/EventRow';
+import FilterChips from '../components/FilterChips';
 
-function FilterChips({ options, value, onChange }) {
-  return (
-    <div className="flex flex-wrap gap-2">
-      <button
-        onClick={() => onChange('')}
-        className={`px-3 py-1 rounded ${value === '' ? 'bg-hotpink text-white' : 'bg-white border'}`}
-      >
-        All
-      </button>
-      {options.map(opt => (
-        <button
-          key={opt}
-          onClick={() => onChange(opt)}
-          className={`px-3 py-1 rounded ${value === opt ? 'bg-hotpink text-white' : 'bg-white border'}`}
-        >
-          {opt}
-        </button>
-      ))}
-    </div>
-  );
-}
+import type { FrontendEvent } from '../src/api.ts';
 
+/** Main listing page of upcoming events */
 export default function Events() {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState<FrontendEvent[]>([]);
   const [category, setCategory] = useState('');
   const [query, setQuery] = useState('');
 
   useEffect(() => {
-    fetch('/api/events').then(res => res.json()).then(setEvents);
+    fetch('/api/events')
+      .then(res => res.json())
+      .then(data => {
+        console.log('Loaded events:', data.length);
+        setEvents(data);
+      });
   }, []);
 
   const filtered = events.filter(e => {
