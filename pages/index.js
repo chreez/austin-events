@@ -9,7 +9,7 @@ export default function Home() {
       </section>
       <section className="p-8 bg-limestone text-earth flex flex-col items-start gap-4">
         <h2 className="text-3xl font-display">Keep Austin Connected</h2>
-        <p>From backyard shows to local art fairs, we're the hub for everything happening on the East Side.</p>
+        <p>From backyard shows to local art fairs, we&apos;re the hub for everything happening on the East Side.</p>
         <p>Sign up for our weekly newsletter and never miss a beat.</p>
         <form className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
           <input type="text" placeholder="Name" className="border p-2 flex-grow" />
