@@ -9,21 +9,28 @@ export async function fetchEvents() {
       if (res.ok) {
         const data = await res.json();
         const eventsData = data._embedded?.events || [];
-        return eventsData.map(ev => ({
-          id: ev.id,
-          title: ev.name,
-          category: ev.classifications?.[0]?.segment?.name || 'Other',
-          url: ev.url,
-          image: ev.images?.[0]?.url,
-          start: ev.dates?.start?.dateTime,
-          end: ev.dates?.end?.dateTime,
-          price: ev.priceRanges?.[0]?.min,
-          role: 'guest',
-          tags: [
-            (ev.classifications?.[0]?.segment?.name || 'other').toLowerCase(),
-            'guest'
-          ]
-        }));
+        return eventsData.map(ev => {
+          const price = ev.priceRanges?.[0];
+          const avg =
+            price?.min && price?.max
+              ? (price.min + price.max) / 2
+              : price?.min || price?.max;
+          return {
+            id: ev.id,
+            title: ev.name,
+            category: ev.classifications?.[0]?.segment?.name || 'Other',
+            url: ev.url,
+            image: ev.images?.[0]?.url,
+            start: ev.dates?.start?.dateTime,
+            end: ev.dates?.end?.dateTime,
+            averageCost: avg,
+            role: 'guest',
+            tags: [
+              (ev.classifications?.[0]?.segment?.name || 'other').toLowerCase(),
+              'guest'
+            ]
+          };
+        });
       }
     } catch (err) {
       console.error('Ticketmaster API failed', err);
@@ -31,6 +38,7 @@ export async function fetchEvents() {
   }
   return events.map(e => ({
     ...e,
+    averageCost: e.price,
     tags: [e.category.toLowerCase(), e.role]
   }));
 }
