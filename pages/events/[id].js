@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import NextImage from 'next/image';
+const Image = NextImage.default || NextImage;
 
 function formatDate(dateStr) {
   if (!dateStr) return '';
@@ -32,7 +34,14 @@ export default function EventDetail() {
       <Link href="/events" className="text-hotpink underline">Back to events</Link>
       <h1 className="text-2xl font-display">{event.title}</h1>
       {event.image && (
-        <img src={event.image} alt="" className="w-full h-auto" />
+        <Image
+          src={event.image}
+          alt=""
+          width={800}
+          height={450}
+          unoptimized
+          className="w-full h-auto"
+        />
       )}
       <p>Date: {formatDate(event.start)}</p>
       <p>Time: {formatTime(event.start)}</p>
