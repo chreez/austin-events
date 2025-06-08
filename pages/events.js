@@ -35,18 +35,18 @@ export default function Events() {
 
   return (
     <>
-      <section className="h-screen bg-[url('/austin-skyline.svg')] bg-cover bg-center bg-fixed flex items-center justify-center">
-        <h1 className="text-5xl font-display text-limestone drop-shadow-lg">Austin Events</h1>
+      <section className="min-h-screen bg-[url('/austin-skyline.svg')] bg-cover bg-center flex items-center justify-center p-8">
+        <h1 className="text-3xl sm:text-5xl font-display text-limestone drop-shadow-lg">Austin Events</h1>
       </section>
-      <main className="p-8 bg-limestone text-earth">
+      <main className="p-8 bg-limestone text-earth max-w-4xl mx-auto">
         <Link href="/" className="text-hotpink underline mb-4 inline-block">Back Home</Link>
         <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2">
           <Filter label="Category" value={category} options={categories} onChange={setCategory} />
           <Filter label="Role" value={role} options={roles} onChange={setRole} />
         </div>
-        <ul className="mb-6">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           {filtered.map(e => (
-            <li key={e.id} className="mb-2">{e.title} - {e.category}</li>
+            <li key={e.id} className="p-4 bg-white rounded shadow">{e.title} - {e.category}</li>
           ))}
         </ul>
         <h2 className="text-2xl font-display text-hotpink mb-2">Recommended</h2>

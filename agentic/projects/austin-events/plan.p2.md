@@ -35,5 +35,12 @@
 - [x] Task 5.1.c – Provide `.env.example` and read API key from environment
 
 ### 📘 austin-events.p2 - Story 5.2 – Human Setup
-- [ ] Task 5.2.a – Create Vercel account and link GitHub repo
-- [ ] Task 5.2.b – Configure environment variables in Vercel dashboard
+- [x] Task 5.2.a – Create Vercel account and link GitHub repo
+- [x] Task 5.2.b – Configure environment variables in Vercel dashboard
+
+## 🧱 austin-events.p2 - Step 6 – Mobile & API Enhancements
+### 📘 austin-events.p2 - Story 6.1 – Mobile-First Layout
+- [x] Task 6.1.a – Optimize hero sections for small screens
+- [x] Task 6.1.b – Convert event list to responsive grid
+### 📘 austin-events.p2 - Story 6.2 – Ticketmaster API
+- [x] Task 6.2.a – Fetch real events when API key set
