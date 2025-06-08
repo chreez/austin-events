@@ -27,3 +27,12 @@
 ### 📘 austin-events.p2 - Story 4.1 – Parallax Hero
 - [x] Task 4.1.a – Add hero art with simple parallax effect
 - [x] Task 4.1.b – Style splash page per local vibe
+
+## 🧱 austin-events.p2 - Step 5 – Deployment to Vercel
+### 📘 austin-events.p2 - Story 5.1 – Codex Setup
+- [x] Task 5.1.a – Add `vercel.json` with default Next.js config
+- [x] Task 5.1.b – Document deployment instructions in README
+- [x] Task 5.1.c – Provide `.env.example` and read API key from environment
+### 📘 austin-events.p2 - Story 5.2 – Human Setup
+- [ ] Task 5.2.a – Create Vercel account and link GitHub repo
+- [ ] Task 5.2.b – Configure environment variables in Vercel dashboard
