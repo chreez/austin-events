@@ -36,7 +36,6 @@ export default function EventDetail() {
       )}
       <p>Date: {formatDate(event.start)}</p>
       <p>Time: {formatTime(event.start)}</p>
-      {event.averageCost && <p>Avg. Ticket Cost: ${event.averageCost}</p>}
       <p>
         <a href={event.url} target="_blank" rel="noopener noreferrer" className="text-hotpink underline">
           Buy Tickets

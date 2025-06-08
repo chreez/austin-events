@@ -88,7 +88,6 @@ export default function Events() {
                   <th className="p-2">Title</th>
                   <th className="p-2">Date</th>
                   <th className="p-2">Time</th>
-                  <th className="p-2">Avg Ticket Cost</th>
                 </tr>
               </thead>
               <tbody>
