@@ -1,59 +1,23 @@
-import { useEffect, useState } from 'react';
-
-function Filter({ label, value, options, onChange }) {
-  return (
-    <label className="mr-2">
-      {label}
-      <select className="ml-1 border p-1" value={value} onChange={e => onChange(e.target.value)}>
-        <option value="">All</option>
-        {options.map(opt => (
-          <option key={opt} value={opt}>{opt}</option>
-        ))}
-      </select>
-    </label>
-  );
-}
+import Link from 'next/link';
 
 export default function Home() {
-  const [events, setEvents] = useState([]);
-  const [category, setCategory] = useState('');
-  const [role, setRole] = useState('');
-
-  useEffect(() => {
-    fetch('/api/events').then(res => res.json()).then(setEvents);
-  }, []);
-
-  const filtered = events.filter(e => {
-    return (!category || e.category === category) && (!role || e.role === role);
-  });
-
-  const recommended = filtered.slice(0, 1);
-
-  const categories = Array.from(new Set(events.map(e => e.category)));
-  const roles = Array.from(new Set(events.map(e => e.role)));
-
   return (
     <>
-      <section className="h-screen bg-[url('/austin-skyline.svg')] bg-cover bg-center bg-fixed flex items-center justify-center">
-        <h1 className="text-5xl font-display text-limestone drop-shadow-lg">Austin Events</h1>
+      <section className="h-screen bg-[url('/austin-skyline.svg')] bg-cover bg-center bg-fixed flex flex-col items-center justify-center text-center">
+        <h1 className="text-6xl font-display text-limestone drop-shadow-lg mb-6">Austin Vibes</h1>
+        <Link href="/events" className="bg-hotpink text-limestone px-6 py-3 rounded shadow-md hover:bg-turquoise transition-colors">Browse Events</Link>
       </section>
-      <main className="p-8 bg-limestone text-earth">
-        <div className="mb-4">
-          <Filter label="Category" value={category} options={categories} onChange={setCategory} />
-          <Filter label="Role" value={role} options={roles} onChange={setRole} />
-        </div>
-        <ul className="mb-6">
-          {filtered.map(e => (
-            <li key={e.id} className="mb-2">{e.title} - {e.category}</li>
-          ))}
-        </ul>
-        <h2 className="text-2xl font-display text-hotpink mb-2">Recommended</h2>
-        <ul>
-          {recommended.map(e => (
-            <li key={e.id}>{e.title}</li>
-          ))}
-        </ul>
-      </main>
+      <section className="p-8 bg-limestone text-earth flex flex-col items-start gap-4">
+        <h2 className="text-3xl font-display">Keep Austin Connected</h2>
+        <p>From backyard shows to local art fairs, we're the hub for everything happening on the East Side.</p>
+        <p>Sign up for our weekly newsletter and never miss a beat.</p>
+        <form className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+          <input type="text" placeholder="Name" className="border p-2 flex-grow" />
+          <input type="email" placeholder="Email" className="border p-2 flex-grow" />
+          <button type="submit" className="bg-sunset text-limestone px-4 py-2 rounded">Sign Up</button>
+        </form>
+        <Link href="/events" className="bg-cactus text-limestone px-4 py-2 rounded shadow hover:bg-turquoise transition-colors">Explore Events</Link>
+      </section>
     </>
   );
 }
