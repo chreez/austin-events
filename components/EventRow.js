@@ -5,24 +5,16 @@ const fmtT = d => (d ? new Date(d).toLocaleTimeString('en-US', { timeStyle: 'sho
 
 export default function EventRow({ event }) {
   const router = useRouter();
-  const style = event.image
-    ? {
-        backgroundImage: `url(${event.image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundBlendMode: 'multiply',
-        backgroundColor: 'rgba(0,0,0,0.5)'
-      }
-    : undefined;
+  const bg = event.image ? { backgroundImage: `url(${event.image})` } : undefined;
   return (
     <tr
       onClick={() => router.push(`/events/${event.id}`)}
-      style={style}
-      className="bg-cover bg-center text-limestone hover:bg-opacity-75 cursor-pointer"
+      style={bg}
+      className="bg-center bg-cover bg-black/40 bg-blend-multiply backdrop-blur-sm text-limestone hover:bg-black/60 cursor-pointer text-lg"
     >
-      <td className="p-2 font-semibold">{event.title}</td>
-      <td className="p-2">{fmtD(event.start)}</td>
-      <td className="p-2">{fmtT(event.start)}</td>
+      <td className="p-3 font-semibold">{event.title}</td>
+      <td className="p-3">{fmtD(event.start)}</td>
+      <td className="p-3">{fmtT(event.start)}</td>
     </tr>
   );
 }
