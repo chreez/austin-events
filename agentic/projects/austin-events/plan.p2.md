@@ -33,6 +33,7 @@
 - [x] Task 5.1.a – Add `vercel.json` with default Next.js config
 - [x] Task 5.1.b – Document deployment instructions in README
 - [x] Task 5.1.c – Provide `.env.example` and read API key from environment
+
 ### 📘 austin-events.p2 - Story 5.2 – Human Setup
 - [ ] Task 5.2.a – Create Vercel account and link GitHub repo
 - [ ] Task 5.2.b – Configure environment variables in Vercel dashboard
