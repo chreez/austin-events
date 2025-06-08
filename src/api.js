@@ -8,7 +8,14 @@ export async function fetchEvents() {
       const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();
-        const eventsData = data._embedded?.events || [];
+        const now = new Date();
+        const eventsData = (data._embedded?.events || []).filter(ev => {
+          const saleStart = ev.sales?.public?.startDateTime;
+          const status = ev.dates?.status?.code;
+          if (status && status !== 'onsale') return false;
+          if (saleStart && new Date(saleStart) > now) return false;
+          return true;
+        });
         return eventsData.map(ev => {
           const price = ev.priceRanges?.[0];
           const avg =
