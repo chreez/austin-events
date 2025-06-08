@@ -1,5 +1,11 @@
-import Link from 'next/link';
-import Hero from '../components/Hero';
+export async function getServerSideProps() {
+  return {
+    redirect: {
+      destination: '/events',
+      permanent: false
+    }
+  };
+}
 
 export default function Home() {
   return (
@@ -14,4 +20,5 @@ export default function Home() {
       </Hero>
     </>
   );
+
 }
